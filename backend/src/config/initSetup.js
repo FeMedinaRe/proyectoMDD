@@ -4,6 +4,8 @@ import Role from "../models/role.model.js";
 // Importa el modelo de datos 'User'
 import User from "../models/user.model.js";
 
+import asistencia from "../models/asistencia.model.js";
+
 /**
  * Crea los roles por defecto en la base de datos.
  * @async
@@ -54,6 +56,20 @@ export async function createUsers() {
         roles: user._id,
       }).save(),
       new User({
+        username: "Nombre Usuario2",
+        email: "user2@gmail.com",
+        rut: "12344678-9",
+        password: await User.encryptPassword("user123"),
+        roles: user._id,
+      }).save(),
+      new User({
+        username: "Nombre Usuario3",
+        email: "user3@gmail.com",
+        rut: "32345678-9",
+        password: await User.encryptPassword("user123"),
+        roles: user._id,
+      }).save(),
+      new User({
         username: "Nombre Administrador",
         email: "admin@gmail.com",
         rut: "12345678-0",
@@ -71,5 +87,32 @@ export async function createUsers() {
     console.log("* => Usuarios creados exitosamente");
   } catch (error) {
     console.log("Error en initSetup.js -> createUsers(): ", error);
+  }
+}
+
+export async function createAsamblea(){
+  try{
+    const count = await asistencia.estimatedDocumentCount();
+    if(count > 0) return; 
+
+    await Promise.all(
+      new asistencia({
+        rut: "12345678-9",
+        asistido: true,
+      }).save(),
+      new asistencia({
+        rut: "12344678-9",
+        asistido: true,
+      }).save(),
+      new asistencia({
+        rut: "32345678-9",
+        asistido: false,
+      }).save(),
+    );
+    console.log("asistencia creada");
+
+  } catch(error){
+    console.log("error en initSetup.js -> createAsamblea(): ", error);
+
   }
 }

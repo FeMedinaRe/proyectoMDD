@@ -1,7 +1,8 @@
+import { Schema, model } from "mongoose";
 import mongoose from "mongoose";
 
-const asistencia = new mongoose.Schema({
-    nombre: {
+const asistenciaSchema = new mongoose.Schema({
+    rut: {
         type: String,
         required: true,
     },
@@ -11,5 +12,6 @@ const asistencia = new mongoose.Schema({
     },
 });
 
-module.exports = mongoose.model('Asistencia', asistencia);
+const asistencia = model("Asistencia", asistenciaSchema);
 
+export default asistencia;

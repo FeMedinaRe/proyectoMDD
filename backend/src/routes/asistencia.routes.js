@@ -8,5 +8,6 @@ import {isAdmin, isMiembroCCEE} from "../middlewares/auth.middleware.js";
 
 const router = Router();
 
-router.put("/", isMiembroCCEE, updateAsistencia);
+router.put("/:id", isMiembroCCEE, updateAsistencia);
 
+export default router;
