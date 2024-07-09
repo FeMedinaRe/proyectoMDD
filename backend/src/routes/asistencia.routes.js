@@ -4,9 +4,9 @@ import { Router } from "express";
 
 import {updateAsistencia} from "../controllers/asistencia.controller";
 
-import {isAdmin} from "../middlewares/auth.middleware.js";
+import {isAdmin, isMiembroCCEE} from "../middlewares/auth.middleware.js";
 
 const router = Router();
 
-router.put("/asistencia",isAdmin, updateAsistencia);
+router.put("/", isMiembroCCEE, updateAsistencia);
 
