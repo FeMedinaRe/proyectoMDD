@@ -1,12 +1,14 @@
 // Importa el modelo de datos 'User'
+import Asistencia from '../models/asistencia.model.js';
+import asistencia from '../models/asistencia.model.js';
 import User from '../models/user.model.js';
 
 export async function updateAsistencia(req, res) {
     try {
-        const listadoAsistencia = req.query.listado;
-        const idAsamblea = req.query.idAsamblea;
-
-        if(!listadoAsistencia || !Array, IsArray(listadoAsistencia)){
+        const listadoAsistencia = req.body.listado;
+        const idAsamblea = req.body.idAsamblea;
+        
+        if(!listadoAsistencia){
         res.status(400).json({
             message: "El parametro 'listado' es requerido y debe ser array",
             data: null
@@ -32,9 +34,9 @@ export async function updateAsistencia(req, res) {
             return;
         }
 
-        const asamblea = await Asamblea.findOne({ id: idAsamblea });
+        const asistencia = await Asistencia.findOne({ id: idAsamblea });
 
-        if(!asamblea){
+        if(!asistencia){
             res.status(405).json({
                 message: "Asamblea no encontrada",
                 data: null
@@ -42,9 +44,9 @@ export async function updateAsistencia(req, res) {
             return;
         }
 
-        const updatedAsamblea = await Asamblea.findOneAndUpdate(
+        const updatedAsamblea = await Asistencia.findOneAndUpdate(
             { id: idAsamblea },
-            { $addToSet: { asistencia: { $each: listadoAsistencia } } },
+            { $addToSet: { rut: { $each: listadoAsistencia } } },
             { new: true }
         );
 
@@ -58,4 +60,3 @@ export async function updateAsistencia(req, res) {
         res.status(500).json({ message: error.message });
     }
 }
-

@@ -8,6 +8,8 @@ import userRoutes from "./user.routes.js";
 /** Enrutador de autenticación */
 import authRoutes from "./auth.routes.js";
 
+import asambleaRoutes from "./asistencia.routes.js";
+
 // Se realiza una instancia de express
 const router = Router();
 
@@ -16,4 +18,5 @@ router.use("/user",  userRoutes);
 // Define las rutas para la autenticación /api/auth
 router.use("/auth", authRoutes);
 
+router.use("/asistencia", asambleaRoutes);
 export default router;

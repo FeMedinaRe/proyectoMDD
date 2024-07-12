@@ -3,15 +3,15 @@ import mongoose from "mongoose";
 
 const asistenciaSchema = new mongoose.Schema({
     rut: {
-        type: String,
-        required: true,
+        type: Array,
+        required: false,
     },
-    asistido: {
-        type: Boolean,
+    id: {
+        type: Array,
         required: true,
     },
 });
 
-const asistencia = model("Asistencia", asistenciaSchema);
+const Asistencia = model("Asistencia", asistenciaSchema);
 
-export default asistencia;
+export default Asistencia;

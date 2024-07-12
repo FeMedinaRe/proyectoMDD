@@ -70,6 +70,48 @@ export async function createUsers() {
         roles: user._id,
       }).save(),
       new User({
+        username: "Nombre Usuario4",
+        email: "user4@gmail.com",
+        rut: "42345678-9",
+        password: await User.encryptPassword("user123"),
+        roles: user._id,
+      }).save(),
+      new User({
+        username: "Nombre Usuario5",
+        email: "user5@gmail.com",
+        rut: "52345678-9",
+        password: await User.encryptPassword("user123"),
+        roles: user._id,
+      }).save(),
+      new User({
+        username: "Nombre Usuario6",
+        email: "user6@gmail.com",
+        rut: "62345678-9",
+        password: await User.encryptPassword("user123"),
+        roles: user._id,
+      }).save(),
+      new User({
+        username: "Nombre Usuario7",
+        email: "user7@gmail.com",
+        rut: "72345678-9",
+        password: await User.encryptPassword("user123"),
+        roles: user._id,
+      }).save(),
+      new User({
+        username: "Nombre Usuario8",
+        email: "user8@gmail.com",
+        rut: "82345678-9",
+        password: await User.encryptPassword("user123"),
+        roles: user._id,
+      }).save(),
+      new User({
+        username: "Nombre Usuario9",
+        email: "user9@gmail.com",
+        rut: "92345678-9",
+        password: await User.encryptPassword("user123"),
+        roles: user._id,
+      }).save(),
+      new User({
         username: "Nombre Administrador",
         email: "admin@gmail.com",
         rut: "12345678-0",
@@ -97,16 +139,15 @@ export async function createAsamblea(){
 
     await Promise.all(
       new asistencia({
-        rut: "12345678-9",
-        asistido: true,
+        rut: ["12345678-9", "12344678-9", "32345678-9"],
+        id: "1",
       }).save(),
       new asistencia({
-        rut: "12344678-9",
-        asistido: true,
+        rut: ["42345678-9", "52344678-9", "62345678-9"],
+        id: "2",
       }).save(),
       new asistencia({
-        rut: "32345678-9",
-        asistido: false,
+        id:"3",
       }).save(),
     );
     console.log("asistencia creada");
