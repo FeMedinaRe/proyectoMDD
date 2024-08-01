@@ -1,7 +1,16 @@
 // Importa el modelo de datos 'User'
 import Asistencia from '../models/asistencia.model.js';
-import asistencia from '../models/asistencia.model.js';
 import User from '../models/user.model.js';
+
+export async function getAsistentes(req, res){
+    try{
+        const asistentes = await Asistencia.find({}, 'rut').populate('rut');
+        res.status(200).json({message: "lista de asistentes", data: asistentes});
+    } catch(error){
+        console.log("error asistencia.controller -> getAsistentes()");
+        res.status(500).json({message: error.message});
+    }
+}
 
 export async function updateAsistencia(req, res) {
     try {
