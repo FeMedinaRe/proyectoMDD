@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getAsistentes } from '../services/asistencia.service'; // Ajusta la ruta según tu estructura de carpetas
+import { getAsistentes } from '../services/asistencia.service';
 
 function AsistentesList() {
     const [asistentes, setAsistentes] = useState([]);
@@ -10,7 +10,7 @@ function AsistentesList() {
         const fetchAsistentes = async () => {
             try {
                 const result = await getAsistentes();
-                setAsistentes(result.data); // Ajusta según la estructura de datos que devuelva tu API
+                setAsistentes(result.data);
             } catch (err) {
                 setError(err);
             } finally {
@@ -30,7 +30,7 @@ function AsistentesList() {
             <ul>
                 {asistentes.length > 0 ? (
                     asistentes.map((asistente, index) => (
-                        <li key={index}>{asistente.rut}</li> // Ajusta según la estructura de datos que devuelva tu API
+                        <li key={index}>{asistente.rut + ','}</li>
                     ))
                 ) : (
                     <p>No hay asistentes disponibles.</p>

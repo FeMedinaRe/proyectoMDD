@@ -9,6 +9,7 @@ function AsistenciaComponent() {
         try {
             const result = await updateAsistencia(listado, idAsamblea);
             console.log("Resultado de la actualización de asistencia:", result);
+            window.location.reload();
         } catch (error) {
             console.error("Error al actualizar la asistencia:", error);
         }

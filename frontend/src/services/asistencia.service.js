@@ -17,6 +17,7 @@ export async function getAsistentes(){
             }
         }
         const {data} = await axios.get('/asistencia/asistentes', config);
+        console.log(data);
         return data;
     } catch(error){
         throw error.response?.data || error.message;
