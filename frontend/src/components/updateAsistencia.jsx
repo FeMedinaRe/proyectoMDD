@@ -15,7 +15,7 @@ function AsistenciaComponent() {
     };
 
     return (
-        <div>
+        <div className = "form" style = {{ alignItems: "center", justifyContent: "center", textAlign: "center"}}>
             <h1>Actualizar Asistencia</h1>
             <div>
                 <input 

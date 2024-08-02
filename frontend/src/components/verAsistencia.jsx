@@ -25,7 +25,7 @@ function AsistentesList() {
     if (error) return <p>Error: {error.message}</p>;
 
     return (
-        <div>
+        <div className = "form">
             <h1>Lista de Asistentes</h1>
             <ul>
                 {asistentes.length > 0 ? (
